@@ -25,7 +25,7 @@ with open(pybank_path,'r', newline="") as pybankcsv:
         countofmonths = countofmonths + 1
         currentmonth = int(row[1])
         nettotal = currentmonth + nettotal
-        if countofmonths > 0:
+        if countofmonths > 1:
             monthchange = currentmonth - lastmonth
             monthlychanges.append(monthchange)
 
@@ -37,10 +37,10 @@ maxchangevalue = max(monthlychanges)
 #print(maxchangevalue)
 maxmonthloc = monthlychanges.index(maxchangevalue)
 #print(maxmonthloc)
-maxmonth = month[maxmonthloc]
+maxmonth = month[maxmonthloc + 1]
 minchangevalue = min(monthlychanges)
 minmonthloc = monthlychanges.index(minchangevalue)
-minmonth = month[minmonthloc]
+minmonth = month[minmonthloc + 1]
 
 print('Financial Analysis')
 print(f"Total Months: {countofmonths}")
